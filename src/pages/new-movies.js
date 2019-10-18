@@ -6,9 +6,8 @@ import Pagination from "../components/Pagination";
 import Footer from "../components/Footer";
 
 export default function NewPlaying() {
-  const [page, setPage] = useState(1);
   const [movieList, setMovieList] = useState([]);
-  console.log(movieList);
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
     (async () => {

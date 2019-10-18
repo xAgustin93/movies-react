@@ -1,8 +1,6 @@
 import React from "react";
 import { Col, Card, Icon } from "antd";
 import { Link } from "react-router-dom";
-import InfiniteScroll from "react-infinite-scroller";
-import Loading from "../Loading";
 
 import "./MovieCatalog.scss";
 
