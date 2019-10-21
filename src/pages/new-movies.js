@@ -1,18 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { Row, Col } from "antd";
-import { URL_API, API } from "../utils/constants";
+import { URL_API, API } from "../utils/contants";
+import Footer from "../components/Footer";
+import Loading from "../components/Loading";
 import MovieCatalog from "../components/MovieCatalog";
 import Pagination from "../components/Pagination";
-import Footer from "../components/Footer";
 
-export default function NewPlaying() {
+export default function NewMovies() {
   const [movieList, setMovieList] = useState([]);
   const [page, setPage] = useState(1);
 
   useEffect(() => {
     (async () => {
       const response = await fetch(
-        `${URL_API}/movie/now_playing?api_key=${API}&language=es-ES&page=${page}`
+        `${URL_API}/movie/now_playing?api_key=${API}&lenguage=es-ES&page=${page}`
       );
       const movies = await response.json();
       setMovieList(movies);
@@ -25,17 +26,17 @@ export default function NewPlaying() {
 
   return (
     <Row>
-      <Col span={24} style={{ textAlign: "center", marginTop: 25 }}>
+      <Col span="24" style={{ textAlign: "center", marginTop: 25 }}>
         <h1 style={{ fontSize: 35, fontWeight: "bold" }}>
-          Ultimos Lanzamientos
+          Ultimos lanzamientos
         </h1>
       </Col>
-      {movieList.results && (
+      {movieList.results ? (
         <Row>
-          <Col span={24}>
+          <Col span="24">
             <MovieCatalog movies={movieList} />
           </Col>
-          <Col span={24}>
+          <Col span="24">
             <Pagination
               currentPage={movieList.page}
               totalItems={movieList.total_results}
@@ -43,6 +44,10 @@ export default function NewPlaying() {
             />
           </Col>
         </Row>
+      ) : (
+        <Col span="24">
+          <Loading />
+        </Col>
       )}
       <Col span={24}>
         <Footer />

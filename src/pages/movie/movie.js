@@ -3,7 +3,7 @@ import { Row, Col, Button } from "antd";
 import { useParams } from "react-router-dom";
 import moment from "moment";
 import useFetch from "../../hooks/useFetch";
-import { URL_API, API } from "../../utils/constants";
+import { URL_API, API } from "../../utils/contants";
 import Loading from "../../components/Loading";
 import ModalVideo from "../../components/ModalVideo";
 
@@ -18,6 +18,7 @@ export default function Movie() {
   if (movieInfo.loading || !movieInfo.result) {
     return <Loading />;
   }
+
   return <RenderMovie movieInfo={movieInfo.result} />;
 }
 
@@ -70,13 +71,11 @@ function MovieInfo(props) {
         return (
           <>
             <Button icon="play-circle" onClick={openModal}>
-              Ver trialer
+              Ver trailer
             </Button>
             <ModalVideo
-              videoKey={videoMovie.result && videoMovie.result.results[0].key}
-              videoPlatform={
-                videoMovie.result && videoMovie.result.results[0].site
-              }
+              videoKey={videoMovie.result.results[0].key}
+              videoPlatform={videoMovie.result.results[0].site}
               isOpen={isVisibleModal}
               close={closeModal}
             />
@@ -99,7 +98,7 @@ function MovieInfo(props) {
         <h3>General</h3>
         <p>{overview}</p>
 
-        <h3>Genero</h3>
+        <h3>Generos</h3>
         <ul>
           {genres.map(gender => (
             <li key={gender.id}>{gender.name}</li>

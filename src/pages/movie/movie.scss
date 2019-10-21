@@ -11,7 +11,7 @@
     height: 100%;
     width: 100%;
     background-color: #000;
-    opacity: 0.5;
+    opacity: 0.7;
   }
 
   > .ant-row {
@@ -22,6 +22,7 @@
 
   &__poster {
     height: 70%;
+
     div {
       height: 100%;
       background-repeat: no-repeat;
@@ -59,8 +60,8 @@
         font-size: 25px;
 
         &:hover,
-        &:active,
-        &:focus {
+        &:focus,
+        &:active {
           background-color: transparent;
           color: turquoise;
         }
@@ -69,6 +70,7 @@
 
     &-content {
       margin-top: 50px;
+
       h3 {
         color: #fff;
         font-weight: bold;

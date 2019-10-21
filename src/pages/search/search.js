@@ -4,14 +4,14 @@ import { withRouter } from "react-router-dom";
 import queryString from "query-string";
 import MovieCatalog from "../../components/MovieCatalog";
 import Footer from "../../components/Footer";
-import { URL_API, API } from "../../utils/constants";
+import { URL_API, API } from "../../utils/contants";
 
 import "./search.scss";
 
 function Search(props) {
   const { location, history } = props;
   const [movieList, setMovieList] = useState([]);
-  const [searchValue, setSerachValue] = useState("");
+  const [searchValue, setSearchValue] = useState("");
 
   useEffect(() => {
     (async () => {
@@ -22,30 +22,29 @@ function Search(props) {
       );
       const movies = await response.json();
 
-      setSerachValue(s);
+      setSearchValue(s);
       setMovieList(movies);
     })();
   }, [location.search]);
 
-  const onChangeSearch = e => {
+  const onChangeSerach = e => {
     const urlParams = queryString.parse(location.search);
     urlParams.s = e.target.value;
     history.push(`?${queryString.stringify(urlParams)}`);
-    setSerachValue(e.target.value);
+    setSearchValue(e.target.value);
   };
 
   return (
     <Row>
       <Col span={12} offset={6} className="search">
-        <h1>Busca tu pelicula</h1>
-        <Input onChange={onChangeSearch} value={searchValue} />
+        <h1>Busca tu película</h1>
+        <Input value={searchValue} onChange={onChangeSerach} />
       </Col>
       {movieList.results && (
         <Row>
           <Col span={24}>
             <MovieCatalog movies={movieList} />
           </Col>
-          <Col span={24}></Col>
         </Row>
       )}
       <Col span={24}>

@@ -7,7 +7,8 @@ import "./SliderMovies.scss";
 
 export default function SliderMovies(props) {
   const { movies } = props;
-  if (movies.loading && !movies.result) {
+
+  if (movies.loading || !movies.result) {
     return <Loading />;
   }
 
@@ -25,12 +26,12 @@ function Movie(props) {
   const {
     movie: { id, backdrop_path, title, overview }
   } = props;
-  const image = `https://image.tmdb.org/t/p/original${backdrop_path}`;
+  const backdropPath = `https://image.tmdb.org/t/p/original${backdrop_path}`;
 
   return (
     <div
       className="slider-movies__movie"
-      style={{ backgroundImage: `url('${image}')` }}
+      style={{ backgroundImage: `url('${backdropPath}')` }}
     >
       <div className="slider-movies__movie-info">
         <div>

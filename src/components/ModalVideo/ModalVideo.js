@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Modal } from "antd";
 import ReactPlayer from "react-player";
+
 import "./ModalVideo.scss";
 
 export default function ModalVideo(props) {

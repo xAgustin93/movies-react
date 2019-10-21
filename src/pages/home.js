@@ -1,7 +1,7 @@
 import React from "react";
 import { Row, Col } from "antd";
 import useFetch from "../hooks/useFetch";
-import { URL_API, API } from "../utils/constants";
+import { URL_API, API } from "../utils/contants";
 import SliderMovies from "../components/SliderMovies";
 import MovieList from "../components/MovieList";
 import Footer from "../components/Footer";
@@ -22,7 +22,7 @@ export default function Home() {
       <SliderMovies movies={newMovies} />
       <Row>
         <Col span={12}>
-          <MovieList title="Peliculas Populares" movies={popularMovies} />
+          <MovieList title="Películas Populares" movies={popularMovies} />
         </Col>
         <Col span={12}>
           <MovieList
