@@ -26,17 +26,17 @@ export default function NewMovies() {
 
   return (
     <Row>
-      <Col span="24" style={{ textAlign: "center", marginTop: 25 }}>
+      <Col span={24} style={{ textAlign: "center", marginTop: 25 }}>
         <h1 style={{ fontSize: 35, fontWeight: "bold" }}>
           Ultimos lanzamientos
         </h1>
       </Col>
       {movieList.results ? (
         <Row>
-          <Col span="24">
+          <Col span={24}>
             <MovieCatalog movies={movieList} />
           </Col>
-          <Col span="24">
+          <Col span={24}>
             <Pagination
               currentPage={movieList.page}
               totalItems={movieList.total_results}
@@ -45,7 +45,7 @@ export default function NewMovies() {
           </Col>
         </Row>
       ) : (
-        <Col span="24">
+        <Col span={24}>
           <Loading />
         </Col>
       )}
